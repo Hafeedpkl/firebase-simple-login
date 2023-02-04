@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_sample/main.dart';
+import 'package:firebase_sample/reset_%20password.dart';
+import 'package:firebase_sample/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +31,7 @@ class _LoginWidgetState extends State<LoginWidget> {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
               height: 20,
@@ -53,6 +56,19 @@ class _LoginWidgetState extends State<LoginWidget> {
             const SizedBox(
               height: 13,
             ),
+            ElevatedButton.icon(
+                onPressed: signIn,
+                icon: Icon(Icons.lock_outline),
+                label: Text('Log In')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResetPassword(),
+                      ));
+                },
+                child: Text('Forgot Password?')),
             RichText(
               text: TextSpan(
                   style: TextStyle(fontSize: 18, color: Colors.black),
@@ -66,10 +82,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                             decoration: TextDecoration.underline, fontSize: 18))
                   ]),
             ),
-            ElevatedButton.icon(
-                onPressed: signIn,
-                icon: Icon(Icons.lock_outline),
-                label: Text('Log In')),
           ],
         ),
       ),
@@ -91,6 +103,7 @@ class _LoginWidgetState extends State<LoginWidget> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
+      Utils.showSnackBar(e.message);
     }
     //Navigator.of(context) not working!
     navigationKey.currentState!.popUntil((route) => route.isFirst);

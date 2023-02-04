@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_sample/auth_page.dart';
 import 'package:firebase_sample/home_page.dart';
 import 'package:firebase_sample/login_widget.dart';
+import 'package:firebase_sample/utils.dart';
 import 'package:flutter/material.dart';
 
 Future main() async {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    scaffoldMessengerKey: messengerKey,
       navigatorKey: navigationKey,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
