@@ -9,6 +9,7 @@ class Utils {
       content: Text(text),
       backgroundColor: Colors.red,
     );
+    
     messengerKey.currentState!
       ..removeCurrentSnackBar()
       ..showSnackBar(snackBar);

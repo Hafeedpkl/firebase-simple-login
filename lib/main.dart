@@ -44,11 +44,11 @@ class MainPage extends StatelessWidget {
             if (snapshot.hasData) {
               return const HomePage();
             } else if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasError) {
-              return Center(
+              return const Center(
                 child: Text('Something went wrong!'),
               );
             } else {

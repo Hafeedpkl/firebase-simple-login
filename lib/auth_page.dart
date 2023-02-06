@@ -1,7 +1,7 @@
 import 'package:firebase_sample/login_widget.dart';
 import 'package:firebase_sample/signup_widget.dart';
+// ignore: implementation_imports
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
